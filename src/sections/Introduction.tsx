@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, transform } from "framer-motion";
+import { motion } from "framer-motion";
 import Range from "../components/Range";
 
 const variants = {
@@ -16,9 +16,11 @@ const Introduction = () => {
     <>
       <div className="flex min-h-[50vh] w-screen items-center justify-center gap-16">
         <motion.div
-          // variants={variants}
           className="relative h-52 w-52 rounded-xl bg-neutral-200 shadow-2xl"
-          // animate={{ x, y, rotate }}
+          // ! first
+          variants={variants}
+          animate={{ x, y, rotate }}
+          // ! drag example work with both
           // whileHover={"whileHover"}
           // whileTap={"whileTap"}
           // drag="x"
@@ -29,18 +31,19 @@ const Introduction = () => {
           //   console.log("top", event.view?.top);
           //   console.log("info.point", info.point);
           // }}
-          animate={{
-            scale: [1, 2, 2, 1, 1],
-            rotate: [0, 0, 270, 270, 0],
-            borderRadius: ["20%", "20%", "50%", "50%", "20%"],
-          }}
-          transition={{
-            duration: 2,
-            ease: "easeInOut",
-            times: [0, 0.2, 0.5, 0.8, 1],
-            repeat: Infinity,
-            repeatDelay: 1,
-          }}
+          // ! second
+          // animate={{
+          //   scale: [1, 2, 2, 1, 1],
+          //   rotate: [0, 0, 270, 270, 0],
+          //   borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+          // }}
+          // transition={{
+          //   duration: 2,
+          //   ease: "easeInOut",
+          //   times: [0, 0.2, 0.5, 0.8, 1],
+          //   repeat: Infinity,
+          //   repeatDelay: 1,
+          // }}
         ></motion.div>
 
         <div className="">
