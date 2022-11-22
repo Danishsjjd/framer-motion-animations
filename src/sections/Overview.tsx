@@ -1,20 +1,13 @@
-import { useAnimation, motion, animate, useMotionValue } from "framer-motion";
+import { motion, animate, useMotionValue } from "framer-motion";
 import { useEffect } from "react";
 import Menu from "../components/Menu";
 import PresenceState from "../components/PresenceState";
 
 const Overview = () => {
-  // const controls = useAnimation();
   const x = useMotionValue("0");
 
   let controls;
   useEffect(() => {
-    // controls.start({
-    //   x: "100%",
-    //   backgroundColor: "#f00",
-    //   transition: { duration: 3 },
-    // });
-
     controls = animate(x, "100", {
       type: "spring",
       stiffness: 2000,

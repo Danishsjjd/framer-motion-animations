@@ -47,7 +47,7 @@ const Menu = () => {
                 },
               },
               closed: {
-                clipPath: "inset(10% 50% 90% 50% round 10px)",
+                clipPath: "inset(5% 0% 95% 100% round 10px)",
                 transition: {
                   type: "spring",
                   bounce: 0,
