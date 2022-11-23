@@ -4,11 +4,25 @@ import { useState } from "react";
 const lis = [1, 2, 3, 4, 5];
 
 const ItemVariants: Variants = {
-  open: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 300, damping: 24, delay: i * 0.3 },
-  }),
+  open: (i) => {
+    const animations = {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 24,
+        delay: i * 0.3,
+      },
+    };
+    if (i % 2 === 0) {
+      return {
+        ...animations,
+        background: "tomato",
+      };
+    }
+    return animations;
+  },
   closed: (i) => ({
     opacity: 0,
     y: 20,
