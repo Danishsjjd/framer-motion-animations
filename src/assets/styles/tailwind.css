@@ -6,4 +6,7 @@
   body {
     overflow-x: hidden;
   }
+  .icon-container {
+    @apply grid cursor-pointer place-items-center rounded-full bg-zinc-600 hover:bg-zinc-500 [&>*]:m-2 [&>*]:text-3xl;
+  }
 }

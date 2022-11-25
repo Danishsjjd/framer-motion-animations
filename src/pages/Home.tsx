@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Checkbox } from "../components/Checkbox";
 
 import Transition from "../components/Transition";
+import Header from "../layout/Header";
 import Introduction from "../sections/Introduction";
 import Layout from "../sections/LayoutAnimation";
 import MainPage from "../sections/MainPage";
@@ -11,6 +12,7 @@ import Scroll from "../sections/Scroll";
 const Home = () => {
   return (
     <motion.div exit={{}}>
+      <Header />
       <h1 className="text-7xl font-bold">Main Page Animation's</h1>
       <MainPage />
 
