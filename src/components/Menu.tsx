@@ -1,5 +1,6 @@
 import { motion, Variants } from "framer-motion";
 import { useState } from "react";
+import Dropdown from "./DropDown";
 
 const lis = [1, 2, 3, 4, 5];
 
@@ -34,6 +35,7 @@ const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="relative h-screen w-screen bg-gradient-to-t from-indigo-700 to-purple-700 text-purple-700 ">
+      <Dropdown />
       <div className="absolute top-40 left-40 w-56">
         <motion.nav
           className="w-full space-y-2 [&_*]:bg-white [&>*]:w-full  [&>*]:rounded"
