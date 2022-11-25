@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
+import { Checkbox } from "../components/Checkbox";
 
-import Example from "../sections/Example";
-import MainPage from "../sections/MainPage";
+import Transition from "../components/Transition";
 import Introduction from "../sections/Introduction";
 import Layout from "../sections/LayoutAnimation";
+import MainPage from "../sections/MainPage";
 import Overview from "../sections/Overview";
 import Scroll from "../sections/Scroll";
-import Transition from "../components/Transition";
 
 const Home = () => {
   return (
@@ -17,8 +17,7 @@ const Home = () => {
       <div>
         <h1 className="text-7xl font-bold">Getting started</h1>
         <Introduction />
-        {/* // todo: incomplete */}
-        <Example />
+        <Checkbox />
       </div>
 
       <div>
