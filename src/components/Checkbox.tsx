@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 
 const tickVariants = {
@@ -14,8 +14,12 @@ const boxVariants = {
   unchecked: { stroke: "#ddd", strokeWidth: 50 },
 };
 
-export const Checkbox = () => {
-  const [isChecked, setIsChecked] = useState(false);
+interface Props {
+  isChecked: boolean;
+  setIsChecked: Dispatch<SetStateAction<boolean>>;
+}
+
+export const Checkbox = ({ isChecked, setIsChecked }: Props) => {
   const pathLength = useMotionValue(0);
   const opacity = useTransform(pathLength, [0.05, 0.15], [0, 1]);
 

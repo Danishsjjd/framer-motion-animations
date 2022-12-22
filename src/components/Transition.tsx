@@ -1,26 +1,17 @@
-import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useState } from "react";
 
-import { useFollowPointer } from "../hooks/useFollowPointer";
+import { Checkbox } from "./Checkbox";
+import Pointer from "./Pointer";
 
 const Transition = () => {
-  const ref = useRef(null);
-  const { x, y } = useFollowPointer(ref);
+  const [showPointer, setShowPointer] = useState(false);
+
   return (
     <>
       <h3 className="text-4xl font-bold">Transition</h3>
       <p>This spring cursor is made up with framer motion</p>
-      <motion.div
-        ref={ref}
-        className="pointer-events-none fixed h-4 w-4 rounded-full bg-emerald-700"
-        animate={{ x, y }}
-        transition={{
-          type: "spring",
-          damping: 3,
-          stiffness: 50,
-          restDelta: 0.001,
-        }}
-      />
+      <Checkbox isChecked={showPointer} setIsChecked={setShowPointer} />
+      {showPointer && <Pointer />}
     </>
   );
 };

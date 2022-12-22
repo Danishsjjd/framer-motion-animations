@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 import Range from "../components/Range";
 
 const variants = {
@@ -8,53 +7,52 @@ const variants = {
 };
 
 const Introduction = () => {
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
-  const [rotate, setRotate] = useState(0);
+  const y = useMotionValue(0);
+  const x = useMotionValue(0);
+  const rotate = useMotionValue(0);
 
   return (
     <>
       <div className="flex min-h-[50vh] w-screen items-center justify-center gap-16">
         <motion.div
+          animate={{
+            scale: [1, 1.2, 1.2, 1, 1],
+            rotate: [0, 0, 270, 270, 0],
+            borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+          }}
+          transition={{
+            duration: 2,
+            ease: "easeInOut",
+            times: [0, 0.2, 0.5, 0.8, 1],
+            repeat: Infinity,
+            repeatDelay: 1,
+          }}
+          className="relative h-52 w-52 rounded-xl bg-red-200 shadow-lg"
+        ></motion.div>
+
+        <motion.div
           className="relative h-52 w-52 rounded-xl bg-neutral-200 shadow-2xl"
-          // ! first
           variants={variants}
-          animate={{ x, y, rotate }}
-          // ! drag example work with both
-          // whileHover={"whileHover"}
-          // whileTap={"whileTap"}
-          // drag="x"
-          // dragConstraints={{ left: -100, right: 100 }}
-          // onDrag={(event, info) => {
-          //   // setX(info.point.x);
-          //   // setY(info.point.y);
-          //   console.log("top", event.view?.top);
-          //   console.log("info.point", info.point);
-          // }}
-          // ! second
-          // animate={{
-          //   scale: [1, 2, 2, 1, 1],
-          //   rotate: [0, 0, 270, 270, 0],
-          //   borderRadius: ["20%", "20%", "50%", "50%", "20%"],
-          // }}
-          // transition={{
-          //   duration: 2,
-          //   ease: "easeInOut",
-          //   times: [0, 0.2, 0.5, 0.8, 1],
-          //   repeat: Infinity,
-          //   repeatDelay: 1,
-          // }}
+          whileTap="whileTap"
+          whileHover="whileHover"
+          style={{ x, y, rotate }}
+          drag={true}
+          dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+          onDrag={(event, info) => {
+            console.log("top", event.view?.top);
+            console.log("info.point", info.point);
+          }}
         ></motion.div>
 
         <div className="">
           <div>
-            <Range range={x} setRange={setX}>
+            <Range range={x} animate="x">
               X
             </Range>
-            <Range range={y} setRange={setY}>
+            <Range range={y} animate="y">
               Y
             </Range>
-            <Range range={rotate} setRange={setRotate}>
+            <Range range={rotate} animate="rotate">
               Rotate
             </Range>
           </div>

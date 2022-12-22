@@ -93,9 +93,8 @@ const DropDownMenu = () => {
             }}
           >
             <ul className="w-full">
-              <DropDownItem>👤 My Profile</DropDownItem>
               <DropDownItem onClick={() => setActiveMenu("settings")}>
-                🪐 Setting
+                🪐 click
               </DropDownItem>
             </ul>
           </motion.div>

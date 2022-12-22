@@ -10,6 +10,7 @@ const MainPage = () => {
 
   return (
     <>
+      <Introduction />
       <SmallCards />
       <motion.img
         alt="product"
@@ -19,7 +20,6 @@ const MainPage = () => {
         className="mx-auto cursor-pointer"
         onClick={() => navigate("/product")}
       />
-      <Introduction />
     </>
   );
 };

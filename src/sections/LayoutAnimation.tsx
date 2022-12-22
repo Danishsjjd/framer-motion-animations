@@ -7,7 +7,7 @@ import Todo from "../components/Todo";
 const LayoutAnimation = () => {
   return (
     <>
-      <h3 className="text-4xl font-bold">Layout</h3>
+      <h3 className="text-center text-4xl font-bold">Layout</h3>
       <Switch />
       <Todo />
       <LayoutGroup>
