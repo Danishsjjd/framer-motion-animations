@@ -3,7 +3,7 @@ import { AnimatePresence, motion, Variants, usePresence } from "framer-motion";
 
 const Header = () => {
   return (
-    <header className="border-b border-b-zinc-500 bg-zinc-700 p-6 text-gray-200">
+    <header className="relative z-50 border-b border-b-zinc-500 bg-zinc-700 p-6 text-gray-200">
       <NavBar>
         <Item icon={"😁"} />
         <Item icon={"😁"} />
@@ -117,15 +117,15 @@ const DropDownMenu = () => {
           >
             <ul className="w-full">
               <DropDownItem onClick={() => setActiveMenu("menu")}>
-                New Menu
+                👈 Go Back
               </DropDownItem>
-              <DropDownItem>New Item</DropDownItem>
-              <DropDownItem>New People</DropDownItem>
-              <DropDownItem>New Things</DropDownItem>
-              <DropDownItem>New Things</DropDownItem>
-              <DropDownItem>New Things</DropDownItem>
-              <DropDownItem>New Things</DropDownItem>
-              <DropDownItem>New Things</DropDownItem>
+              <DropDownItem>Nothing</DropDownItem>
+              <DropDownItem>Happen</DropDownItem>
+              <DropDownItem>If</DropDownItem>
+              <DropDownItem>You</DropDownItem>
+              <DropDownItem>Click</DropDownItem>
+              <DropDownItem>Me</DropDownItem>
+              <DropDownItem>🥰</DropDownItem>
             </ul>
           </motion.div>
         )}

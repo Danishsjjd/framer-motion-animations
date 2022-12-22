@@ -17,7 +17,8 @@ function Range({ children, range, animate: animateThisProperty }: RangeProps) {
 
   const onChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
     animate(range, parseInt(e.target.value), {
-      duration: 0.5,
+      duration: 0.01,
+      type: "spring",
     });
   };
 

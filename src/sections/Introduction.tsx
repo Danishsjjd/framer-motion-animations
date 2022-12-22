@@ -1,9 +1,10 @@
-import { motion, useMotionValue } from "framer-motion";
+import { animate, motion, useMotionValue } from "framer-motion";
 import Range from "../components/Range";
 
 const variants = {
   whileTap: { scale: 0.8, rotate: -90, borderRadius: "100%" },
   whileHover: { scale: 1.2, rotate: 90 },
+  whileDrag: { rotate: 0 },
 };
 
 const Introduction = () => {
@@ -31,10 +32,10 @@ const Introduction = () => {
         ></motion.div>
 
         <motion.div
-          className="relative h-52 w-52 rounded-xl bg-neutral-200 shadow-2xl"
+          className="relative grid h-52 w-52 place-items-center rounded-xl bg-neutral-200 text-xl shadow-2xl"
           variants={variants}
           whileTap="whileTap"
-          whileHover="whileHover"
+          // whileHover="whileHover"
           style={{ x, y, rotate }}
           drag={true}
           dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
@@ -42,7 +43,9 @@ const Introduction = () => {
             console.log("top", event.view?.top);
             console.log("info.point", info.point);
           }}
-        ></motion.div>
+        >
+          Text
+        </motion.div>
 
         <div className="">
           <div>

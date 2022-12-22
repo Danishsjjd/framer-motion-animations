@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useIsPresent } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -13,6 +13,7 @@ import Scroll from "../sections/Scroll";
 
 const Home = () => {
   const [isChecked, setIsChecked] = useState(false);
+  const present = useIsPresent();
   return (
     <motion.div exit={{}}>
       <Header />
@@ -29,6 +30,9 @@ const Home = () => {
         <PageTransition />
         <Link to={"/transition"} className="link text-3xl">
           transition
+        </Link>
+        <Link to={"/cards"} className="link text-3xl">
+          Cards
         </Link>
       </div>
 
