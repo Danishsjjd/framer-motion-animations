@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useReducer, useState, useRef } from "react";
+import React, { useReducer, useRef } from "react";
 
 interface Todo {
   isCompleted: boolean;
@@ -83,7 +83,7 @@ const Todo = () => {
       <motion.ul>
         <AnimatePresence mode="popLayout">
           {state.todo.map((singleTodo) => (
-            <List {...singleTodo} dispatch={dispatch} key={singleTodo.id} />
+            <List dispatch={dispatch} key={singleTodo.id} {...singleTodo} />
           ))}
         </AnimatePresence>
       </motion.ul>
@@ -91,38 +91,41 @@ const Todo = () => {
   );
 };
 
-const List = ({
-  id,
-  todo,
-  dispatch,
-}: {
-  id: number;
-  todo: string;
-  dispatch: React.Dispatch<Action>;
-}) => {
-  const [isPresent, setIsPresent] = useState(true);
-  return (
-    <motion.li
-      className="m-3"
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0, scaleY: 0 }}
-      layout
-    >
-      <p>{todo}</p>
-      <button
-        onClick={() => {
-          setIsPresent(false);
-          dispatch({
-            payload: id,
-            type: "DELETE",
-          });
-        }}
-        className="m-2 rounded bg-red-400 p-4"
+const List = React.forwardRef(
+  (
+    {
+      id,
+      todo,
+      dispatch,
+    }: {
+      id: number;
+      todo: string;
+      dispatch: React.Dispatch<Action>;
+    },
+    ref
+  ) => {
+    return (
+      <motion.li
+        className="m-3"
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0, scaleY: 0 }}
+        layout
       >
-        Delete
-      </button>
-    </motion.li>
-  );
-};
+        <p>{todo}</p>
+        <button
+          onClick={() => {
+            dispatch({
+              payload: id,
+              type: "DELETE",
+            });
+          }}
+          className="m-2 rounded bg-red-400 p-4"
+        >
+          Delete
+        </button>
+      </motion.li>
+    );
+  }
+);
 
 export default Todo;

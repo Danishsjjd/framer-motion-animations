@@ -34,11 +34,11 @@ const ItemVariants: Variants = {
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="relative h-screen w-screen bg-gradient-to-t from-indigo-700 to-purple-700 text-purple-700 ">
+    <div className="relative h-[70vh] w-screen bg-gradient-to-t from-indigo-700 to-purple-700 text-purple-700 ">
       <Dropdown />
       <div className="absolute top-40 left-40 w-56">
         <motion.nav
-          className="w-full space-y-2 [&_*]:bg-white [&>*]:w-full  [&>*]:rounded"
+          className="w-full space-y-2 [&>*]:w-full [&>*]:rounded  [&_*]:bg-white"
           animate={isOpen ? "open" : "closed"}
           initial={false}
         >

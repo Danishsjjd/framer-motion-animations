@@ -19,7 +19,7 @@ const Scroll = () => {
       />
       <motion.div
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        whileInView={{ opacity: 1, transition: { duration: 2 } }}
         className="h-40 w-40 bg-red-400"
         viewport={{ root: container }}
       />

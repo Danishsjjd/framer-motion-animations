@@ -1,5 +1,5 @@
-import { ReactNode, useState, useRef } from "react";
-import { AnimatePresence, motion, Variants } from "framer-motion";
+import { ReactNode, useState, useRef, useEffect } from "react";
+import { AnimatePresence, motion, Variants, usePresence } from "framer-motion";
 
 const Header = () => {
   return (
@@ -17,11 +17,21 @@ const Header = () => {
 };
 
 const DropDownMenu = () => {
+  const [isPresent, safeToRemove] = usePresence();
+
   const [activeMenu, setActiveMenu] = useState("menu");
   const [height, setHeight] = useState(100);
 
   const menuRef = useRef<HTMLDivElement | null>(null);
   const settingRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    let time: null | number;
+    if (!isPresent) time = setTimeout(safeToRemove, 1000);
+    return () => {
+      if (time) clearTimeout(time);
+    };
+  }, [isPresent]);
 
   const mainVariants: Variants = {
     show: {
@@ -44,10 +54,28 @@ const DropDownMenu = () => {
     },
   };
 
+  const dropdownVariants: Variants = {
+    initial: {
+      opacity: 0,
+      y: 10,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.1,
+      },
+    },
+  };
+
   return (
     <motion.div
       className="absolute right-0 top-16 w-80 overflow-hidden rounded-xl border-zinc-500 bg-zinc-600 p-4 text-zinc-300 transition-all duration-500"
-      style={{ height: height ? height + 30 : "auto" }}
+      style={{ height: height + 30 }}
+      variants={dropdownVariants}
+      initial="initial"
+      animate="animate"
+      exit={"initial"}
     >
       <AnimatePresence mode="wait" initial={false}>
         {activeMenu === "menu" && (
@@ -152,7 +180,7 @@ const Item = ({
       >
         {icon}
       </a>
-      {isOpen && children}
+      <AnimatePresence mode="wait">{isOpen && children}</AnimatePresence>
     </li>
   );
 };

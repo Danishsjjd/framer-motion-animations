@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import landScape from "../assets/images/landscape.jpg";
+import Introduction from "./Introduction";
 
 const MainPage = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const MainPage = () => {
         className="mx-auto cursor-pointer"
         onClick={() => navigate("/product")}
       />
+      <Introduction />
     </>
   );
 };

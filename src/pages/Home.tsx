@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
-import { Checkbox } from "../components/Checkbox";
+import { Link } from "react-router-dom";
 
+import { Checkbox } from "../components/Checkbox";
+import PageTransition from "../components/PageTransition";
 import Transition from "../components/Transition";
 import Header from "../layout/Header";
-import Introduction from "../sections/Introduction";
 import Layout from "../sections/LayoutAnimation";
 import MainPage from "../sections/MainPage";
 import Overview from "../sections/Overview";
@@ -13,29 +14,37 @@ const Home = () => {
   return (
     <motion.div exit={{}}>
       <Header />
-      <h1 className="text-7xl font-bold">Main Page Animation's</h1>
+      <h1 className="text-center text-7xl font-bold">Main Page Animation's</h1>
       <MainPage />
 
-      <div>
-        <h1 className="text-7xl font-bold">Getting started</h1>
-        <Introduction />
+      <div className="flex flex-col items-center gap-3">
+        <h1 className="text-center text-7xl font-bold">Examples</h1>
         <Checkbox />
+        <PageTransition />
+        <Link to={"/transition"} className="link">
+          transition
+        </Link>
       </div>
 
       <div>
-        <h1 className="text-7xl font-bold">Animations</h1>
+        <h1 className="text-center text-7xl font-bold">Animations</h1>
         <Overview />
         <Layout />
-        <div>
-          <h3 className="text-4xl font-bold">Gestures</h3>
-          <p>
-            in Gestures, we have while&#123;hover, focus, inView, Tap, darg,
-            pan&#125;
-          </p>
-        </div>
-        <Scroll />
-        <Transition />
       </div>
+
+      <div>
+        <h3 className="text-center text-4xl font-bold">Gestures</h3>
+        <p>
+          in Gestures, we have while&#123;hover, focus, inView, Tap, darg,
+          pan&#125;
+        </p>
+      </div>
+
+      <h3 className="text-center text-4xl font-bold">Scroll</h3>
+      <Scroll />
+
+      <h3 className="text-center text-4xl font-bold">Transition</h3>
+      <Transition />
     </motion.div>
   );
 };

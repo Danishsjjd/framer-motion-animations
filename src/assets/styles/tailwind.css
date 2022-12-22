@@ -9,4 +9,7 @@
   .icon-container {
     @apply grid cursor-pointer place-items-center rounded-full bg-zinc-600 hover:bg-zinc-500 [&>*]:m-2 [&>*]:text-3xl;
   }
+  .link {
+    @apply text-blue-700 underline decoration-blue-700;
+  }
 }
