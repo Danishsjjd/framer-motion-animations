@@ -11,7 +11,7 @@ import MainPage from "../sections/MainPage";
 import Overview from "../sections/Overview";
 import Scroll from "../sections/Scroll";
 
-const Home = ({ previousPath }: { previousPath: string | undefined }) => {
+const Home = () => {
   const [isChecked, setIsChecked] = useState(false);
   return (
     <motion.div exit={{}}>
@@ -26,12 +26,9 @@ const Home = ({ previousPath }: { previousPath: string | undefined }) => {
           Examples
         </h1>
         <Checkbox isChecked={isChecked} setIsChecked={setIsChecked} />
-        <PageTransition previousPath={previousPath} />
+        <PageTransition />
         <Link to={"/transition"} className="link text-3xl">
           transition
-        </Link>
-        <Link to={"/cards"} className="link text-3xl">
-          Cards
         </Link>
       </div>
 
