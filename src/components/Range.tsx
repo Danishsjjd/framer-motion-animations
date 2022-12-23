@@ -2,7 +2,6 @@ import { MotionValue, animate } from "framer-motion";
 import { ChangeEventHandler, ReactNode, useState } from "react";
 
 type RangeProps = {
-  // setRange: Dispatch<SetStateAction<number>>;
   children: ReactNode;
   range: MotionValue;
   animate: string;
@@ -23,14 +22,15 @@ function Range({ children, range, animate: animateThisProperty }: RangeProps) {
   };
 
   return (
-    <label className=" flex items-center justify-center bg-red-200">
-      <span>{children}</span>
+    <label className="flex items-center justify-center bg-red-200">
+      <span className="block w-20 text-center">{children}</span>
 
       <input
         type="range"
         className="h-6 w-full"
         onChange={onChangeHandler}
         value={localRange}
+        min={-100}
       />
     </label>
   );

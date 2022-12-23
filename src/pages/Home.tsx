@@ -1,4 +1,4 @@
-import { motion, useIsPresent } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -11,9 +11,8 @@ import MainPage from "../sections/MainPage";
 import Overview from "../sections/Overview";
 import Scroll from "../sections/Scroll";
 
-const Home = () => {
+const Home = ({ previousPath }: { previousPath: string | undefined }) => {
   const [isChecked, setIsChecked] = useState(false);
-  const present = useIsPresent();
   return (
     <motion.div exit={{}}>
       <Header />
@@ -27,7 +26,7 @@ const Home = () => {
           Examples
         </h1>
         <Checkbox isChecked={isChecked} setIsChecked={setIsChecked} />
-        <PageTransition />
+        <PageTransition previousPath={previousPath} />
         <Link to={"/transition"} className="link text-3xl">
           transition
         </Link>

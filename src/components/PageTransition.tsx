@@ -1,10 +1,13 @@
 import { useIsPresent, motion } from "framer-motion";
 
-const PageTransition = () => {
+const PageTransition = ({ previousPath }: { previousPath?: string }) => {
   const isPresent = useIsPresent();
+
+  const initial = previousPath === "/product" ? false : { scaleX: 1 };
+
   return (
     <motion.div
-      initial={{ scaleX: 1 }}
+      initial={initial}
       animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}
       exit={{
         scaleX: 1,
