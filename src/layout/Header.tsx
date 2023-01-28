@@ -119,13 +119,11 @@ const DropDownMenu = () => {
               <DropDownItem onClick={() => setActiveMenu("menu")}>
                 👈 Go Back
               </DropDownItem>
+              <DropDownItem>Go</DropDownItem>
+              <DropDownItem>Back</DropDownItem>
+              <DropDownItem>Or</DropDownItem>
+              <DropDownItem>Do</DropDownItem>
               <DropDownItem>Nothing</DropDownItem>
-              <DropDownItem>Happen</DropDownItem>
-              <DropDownItem>If</DropDownItem>
-              <DropDownItem>You</DropDownItem>
-              <DropDownItem>Click</DropDownItem>
-              <DropDownItem>Me</DropDownItem>
-              <DropDownItem>🥰</DropDownItem>
             </ul>
           </motion.div>
         )}
