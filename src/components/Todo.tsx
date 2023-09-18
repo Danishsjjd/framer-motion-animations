@@ -27,7 +27,7 @@ const reducer = (state: TodoState, actions: Action): TodoState => {
   const { payload, type } = actions;
   switch (type) {
     case "ADD":
-      const newTodo = [...state.todo, payload];
+      const newTodo = [payload, ...state.todo];
       return { ...state, todo: newTodo };
     case "DELETE":
       const newState = state.todo.filter(
@@ -44,19 +44,19 @@ const Todo = () => {
   const [state, dispatch] = useReducer(reducer, {
     todo: [
       {
-        todo: "danish is on another level",
+        todo: "third level",
         isCompleted: false,
-        id: 1,
+        id: 3,
       },
       {
-        todo: "danish is on second level",
+        todo: "second level",
         isCompleted: false,
         id: 2,
       },
       {
-        todo: "danish is on third level",
+        todo: "another level",
         isCompleted: false,
-        id: 3,
+        id: 1,
       },
     ],
   });
@@ -70,7 +70,7 @@ const Todo = () => {
           id.current++;
           dispatch({
             payload: {
-              todo: `todo number ${id.current}`,
+              todo: `level number: ${id.current}`,
               id: id.current,
               isCompleted: false,
             },
@@ -81,7 +81,7 @@ const Todo = () => {
         Add Item
       </motion.button>
       <motion.ul>
-        <AnimatePresence mode="popLayout">
+        <AnimatePresence>
           {state.todo.map((singleTodo) => (
             <List dispatch={dispatch} key={singleTodo.id} {...singleTodo} />
           ))}
@@ -91,41 +91,37 @@ const Todo = () => {
   );
 };
 
-const List = React.forwardRef(
-  (
-    {
-      id,
-      todo,
-      dispatch,
-    }: {
-      id: number;
-      todo: string;
-      dispatch: React.Dispatch<Action>;
-    },
-    ref
-  ) => {
-    return (
-      <motion.li
-        className="m-3"
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0, scaleY: 0 }}
-        layout
-      >
-        <p>{todo}</p>
-        <button
-          onClick={() => {
-            dispatch({
-              payload: id,
-              type: "DELETE",
-            });
-          }}
-          className="m-2 rounded bg-red-400 p-4"
-        >
-          Delete
-        </button>
-      </motion.li>
-    );
+const List = React.forwardRef<
+  HTMLLIElement,
+  {
+    id: number;
+    todo: string;
+    dispatch: React.Dispatch<Action>;
   }
-);
+>(({ id, todo, dispatch }, ref) => {
+  return (
+    <motion.li
+      className="m-3"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, scaleY: 0 }}
+      layout
+      ref={ref}
+    >
+      <p>{todo}</p>
+      <button
+        onClick={() => {
+          dispatch({
+            payload: id,
+            type: "DELETE",
+          });
+        }}
+        className="m-2 rounded bg-red-400 p-4"
+      >
+        Delete
+      </button>
+    </motion.li>
+  );
+});
 
 export default Todo;
