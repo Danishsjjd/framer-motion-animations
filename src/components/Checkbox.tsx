@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction, useState } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
+import { Dispatch, SetStateAction } from "react";
 
 const tickVariants = {
   pressed: (isChecked: boolean) => ({ pathLength: isChecked ? 0.85 : 0.2 }),

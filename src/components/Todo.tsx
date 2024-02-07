@@ -26,14 +26,16 @@ type Action = DeleteTodo | AddTodo;
 const reducer = (state: TodoState, actions: Action): TodoState => {
   const { payload, type } = actions;
   switch (type) {
-    case "ADD":
+    case "ADD": {
       const newTodo = [payload, ...state.todo];
       return { ...state, todo: newTodo };
-    case "DELETE":
+    }
+    case "DELETE": {
       const newState = state.todo.filter(
-        (singleTodo) => singleTodo.id !== payload
+        (singleTodo) => singleTodo.id !== payload,
       );
       return { ...state, todo: newState };
+    }
     default:
       return state;
   }

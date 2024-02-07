@@ -1,6 +1,5 @@
 import { Menu, Transition } from "@headlessui/react";
-import { AnimatePresence, motion } from "framer-motion";
-import { Fragment } from "react";
+import { ComponentPropsWithoutRef, Fragment } from "react";
 
 export default function Dropdown() {
   return (
@@ -144,7 +143,7 @@ export default function Dropdown() {
   );
 }
 
-function EditInactiveIcon(props: any) {
+function EditInactiveIcon(props: ComponentPropsWithoutRef<"svg">) {
   return (
     <svg
       {...props}
@@ -162,7 +161,7 @@ function EditInactiveIcon(props: any) {
   );
 }
 
-function EditActiveIcon(props: any) {
+function EditActiveIcon(props: ComponentPropsWithoutRef<"svg">) {
   return (
     <svg
       {...props}
@@ -180,7 +179,7 @@ function EditActiveIcon(props: any) {
   );
 }
 
-function DuplicateInactiveIcon(props: any) {
+function DuplicateInactiveIcon(props: ComponentPropsWithoutRef<"svg">) {
   return (
     <svg
       {...props}
@@ -204,7 +203,7 @@ function DuplicateInactiveIcon(props: any) {
   );
 }
 
-function DuplicateActiveIcon(props: any) {
+function DuplicateActiveIcon(props: ComponentPropsWithoutRef<"svg">) {
   return (
     <svg
       {...props}
@@ -228,7 +227,7 @@ function DuplicateActiveIcon(props: any) {
   );
 }
 
-function ArchiveInactiveIcon(props: any) {
+function ArchiveInactiveIcon(props: ComponentPropsWithoutRef<"svg">) {
   return (
     <svg
       {...props}
@@ -259,7 +258,7 @@ function ArchiveInactiveIcon(props: any) {
   );
 }
 
-function ArchiveActiveIcon(props: any) {
+function ArchiveActiveIcon(props: ComponentPropsWithoutRef<"svg">) {
   return (
     <svg
       {...props}
@@ -290,7 +289,7 @@ function ArchiveActiveIcon(props: any) {
   );
 }
 
-function MoveInactiveIcon(props: any) {
+function MoveInactiveIcon(props: ComponentPropsWithoutRef<"svg">) {
   return (
     <svg
       {...props}
@@ -305,7 +304,7 @@ function MoveInactiveIcon(props: any) {
   );
 }
 
-function MoveActiveIcon(props: any) {
+function MoveActiveIcon(props: ComponentPropsWithoutRef<"svg">) {
   return (
     <svg
       {...props}
@@ -320,7 +319,7 @@ function MoveActiveIcon(props: any) {
   );
 }
 
-function DeleteInactiveIcon(props: any) {
+function DeleteInactiveIcon(props: ComponentPropsWithoutRef<"svg">) {
   return (
     <svg
       {...props}
@@ -343,7 +342,7 @@ function DeleteInactiveIcon(props: any) {
   );
 }
 
-function DeleteActiveIcon(props: any) {
+function DeleteActiveIcon(props: ComponentPropsWithoutRef<"svg">) {
   return (
     <svg
       {...props}

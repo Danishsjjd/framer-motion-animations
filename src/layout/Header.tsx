@@ -1,5 +1,5 @@
-import { ReactNode, useState, useRef, useEffect } from "react";
-import { AnimatePresence, motion, Variants, usePresence } from "framer-motion";
+import { AnimatePresence, Variants, motion, usePresence } from "framer-motion";
+import { ReactNode, useEffect, useState } from "react";
 
 const Header = () => {
   return (
@@ -28,7 +28,7 @@ const DropDownMenu = () => {
     return () => {
       if (time) clearTimeout(time);
     };
-  }, [isPresent]);
+  }, [isPresent, safeToRemove]);
 
   const mainVariants: Variants = {
     show: {
@@ -132,7 +132,7 @@ const DropDownItem = ({
   onClick,
 }: {
   children: ReactNode;
-  onClick?: Function;
+  onClick?: () => unknown;
 }) => {
   return (
     <div

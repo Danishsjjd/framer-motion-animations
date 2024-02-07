@@ -11,6 +11,7 @@ import Layout from "../sections/LayoutAnimation";
 import MainPage from "../sections/MainPage";
 import Overview from "../sections/Overview";
 import Scroll from "../sections/Scroll";
+import RewardClaim from "../components/RewardClaim";
 
 const Home = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -67,6 +68,7 @@ const Home = () => {
       <button className="flex gap-px text-4xl mx-auto py-4" disabled>
         <AnimatedDots>Loading</AnimatedDots>
       </button>
+      <RewardClaim />
     </motion.div>
   );
 };

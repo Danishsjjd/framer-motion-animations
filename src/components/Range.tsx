@@ -7,10 +7,10 @@ type RangeProps = {
   animate: string;
 };
 
-function Range({ children, range, animate: animateThisProperty }: RangeProps) {
+function Range({ children, range }: RangeProps) {
   const [localRange, setLocalRange] = useState(() => range.get());
 
-  range.onChange((e) => {
+  range.on("change", (e) => {
     setLocalRange(e);
   });
 
