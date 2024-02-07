@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import AnimatedDots from "../components/AnimatedDots";
 import { Checkbox } from "../components/Checkbox";
 import PageTransition from "../components/PageTransition";
 import Transition from "../components/Transition";
@@ -59,6 +60,13 @@ const Home = () => {
         Transition
       </h3>
       <Transition />
+
+      <h3 className="pointer-events-none text-center text-4xl font-bold">
+        Misc.
+      </h3>
+      <button className="flex gap-px text-4xl mx-auto py-4" disabled>
+        <AnimatedDots>Loading</AnimatedDots>
+      </button>
     </motion.div>
   );
 };

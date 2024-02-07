@@ -22,9 +22,6 @@ const DropDownMenu = () => {
   const [activeMenu, setActiveMenu] = useState("menu");
   const [height, setHeight] = useState(100);
 
-  const menuRef = useRef<HTMLDivElement | null>(null);
-  const settingRef = useRef<HTMLDivElement | null>(null);
-
   useEffect(() => {
     let time: null | number;
     if (!isPresent) time = setTimeout(safeToRemove, 1000);
@@ -86,7 +83,6 @@ const DropDownMenu = () => {
             exit="hidden"
             transition={{ duration: 0.5 }}
             className="top-4 left-4 right-4"
-            ref={menuRef}
             onViewportEnter={(el) => {
               if (el?.boundingClientRect)
                 setHeight(el?.boundingClientRect?.height);
@@ -109,7 +105,6 @@ const DropDownMenu = () => {
             exit="hidden"
             transition={{ duration: 0.5 }}
             className="top-4 left-4 right-4"
-            ref={settingRef}
             onViewportEnter={(el) => {
               if (el?.boundingClientRect)
                 setHeight(el?.boundingClientRect?.height);
